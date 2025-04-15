@@ -3,6 +3,7 @@ package org.HospitalProjectCholda.data.models;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -10,7 +11,6 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
 import java.util.Locale;
-
 @Document(collection = "appointment")
 @AllArgsConstructor
 @NoArgsConstructor
@@ -26,8 +26,10 @@ public class Appointment {
 
     private LocalDateTime appointmentTime;
     private Patient patient;
-    private String doctorId;
+    private Doctor doctor;
     private String description;
+    private String status = "PENDING";
+
 
 //    public Appointment(String appointmentDateTime, Patient patient, String doctorId, String description) {
 //        this.appointmentTime = LocalDateTime.parse(appointmentDateTime, APPOINTMENT_FORMATTER);
